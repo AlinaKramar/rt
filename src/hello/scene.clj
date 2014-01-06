@@ -17,17 +17,11 @@
           pixel-length (/ screen-length (:n (:screen this)))
           pixel-width (/ screen-width (:m (:screen this)))
           camera-direction (normalize (sub camera-dir camera-origin))
-          camera-right-direction (normalize (cross camera-direction camera-up-dir))]
+          camera-right-direction (normalize (cross camera-direction camera-up-dir))
+          screen-center (sum camera-origin (mult focus camera-direction))
+          top-border-center (sum screen-center (mult (/ screen-width 2)))
+          top-left-angel (sum top-border-center (mult (/ screen-length 2) camera-right-direction))
+          i-strip-top (sub top-left-angle (mult (* i pixel-length) camera-right-direction))
+          i-j-pixel (sub i-strip-top (mult (* j pixel-width) camera-up-dir))]
 
-          let [screen-center (sum camera-origin (mult focus camera-direction))
-               top-border-center (sum screen-center (mult (/ screen-width 2)))
-               top-left-angel (sum top-border-center (mult (/ screen-length 2)
-                                                       camera-right-direction))]
-
-               let [i-strip-top (sub top-left-angle (mult (* i pixel-length) camera-right-direction))
-                    i-j-pixel (sub i-strip-top (mult (* j pixel-width) camera-up-dir))]
-
-          (->Ray camera-origin (normalize (sub i-j-pixel camera-origin)))
-      ))
-  )
-
+          (->Ray camera-origin (normalize (sub i-j-pixel camera-origin))))))
