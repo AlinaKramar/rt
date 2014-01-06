@@ -21,5 +21,11 @@
 (defn normalize [v]
   (mult (/ 1 (length v)) v))
 
-(defn cross [a b]
-  (Vector. (- (* :y a :z b) (* :z a :y b)) (- (* :z a :x b) (* :x a :z b)) (- (* :x a :y b) (* :y a :x b))))
+(defn cross [v1 v2]
+  ;; x y z
+  ;; a b c
+  (let [{x :x y :y z :z} v1
+        {a :x b :y c :z} v2]
+    (->Vector (- (* y c) (* z b))
+              (- (* z a) (* x c))
+              (- (* x b) (* y a)))))
