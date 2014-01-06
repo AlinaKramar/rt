@@ -11,4 +11,5 @@
 (def sphere (->Sphere center 2))
 
 (defn -main []
-  (bitmap2console (chess 10 10 2)))
+  (let [c (chess 640 480 16)]
+    (bitmap2screen c)))

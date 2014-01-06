@@ -16,10 +16,12 @@
 (def black  (->Color z z z))
 (def white  (->Color o o o))
 
+(defrecord Bitmap [width height data])
 
 (defn bitmap [width height f]
-  (vec (for [y (range height)]
-         (vec (for [x (range width)] (f x y))))))
+  (->Bitmap width height
+            (vec (for [y (range height)]
+                   (vec (for [x (range width)] (f x y)))))))
 
 (defn chess [width height side]
     (bitmap width height #(if (even? (+ (quot %1 side) (quot %2 side)))
