@@ -17,11 +17,11 @@
             sqro (dot o o)
             sqrr (* r r)
             dscr (- (* sd-od sd-od) (* sqrd (- sqro sqrr (* 2 (dot s o)) sqrs)))]
-        (if (< dscr 0)
+        (if (neg? dscr)
           0
           (let [t1 (/ (+ (- sd-od) (math/sqrt dscr)) sqrd)
                 t2 (/ (- (- sd-od) (math/sqrt dscr)) sqrd)]
             (cond
-             (< (* t1 t2) 0) (max t1 t2)
-             (t1 > 0) (min t1 t2)
+             (neg? (* t1 t2)) (max t1 t2)
+             (pos? t1) (min t1 t2)
              :else 0))))))
