@@ -1,7 +1,7 @@
-(ns hello.shapes.sphere
-  (:use hello.shapes.shape)
-  (:use hello.vector)
-  (:use hello.ray)
+(ns rt.shapes.sphere
+  (:use rt.shapes.shape)
+  (:use rt.vector)
+  (:use rt.ray)
   (:require [clojure.math.numeric-tower :as math]))
 
 (defrecord Sphere [o r]

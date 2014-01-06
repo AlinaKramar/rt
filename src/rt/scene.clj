@@ -1,6 +1,6 @@
-(ns hello.scene
-  (:use hello.vector)
-  (:use hello.ray))
+(ns rt.scene
+  (:use rt.vector)
+  (:use rt.ray))
 
 (defrecord Camera [o n k f])
 

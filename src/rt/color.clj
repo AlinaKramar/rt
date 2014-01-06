@@ -1,4 +1,4 @@
-(ns hello.color)
+(ns rt.color)
 
 (defrecord Color [r g b])
 

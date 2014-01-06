@@ -1,4 +1,4 @@
-(ns hello.vector
+(ns rt.vector
   (:require [clojure.math.numeric-tower :as math]))
 
 (defrecord Vector [x y z])
