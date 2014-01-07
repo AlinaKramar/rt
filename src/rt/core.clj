@@ -11,5 +11,4 @@
 (def sphere (->Sphere center 2))
 
 (defn -main []
-  (let [c (chess 640 480 16)]
-    (bitmap2screen c)))
+  (println (ray-intersection sphere ray)))
